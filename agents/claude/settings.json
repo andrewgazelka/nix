@@ -1,0 +1,74 @@
+{
+  "env": {
+    "ENABLE_TOOL_SEARCH": "auto",
+    "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "40"
+  },
+  "permissions": {
+    "allow": [
+      "Read"
+    ],
+    "deny": [
+      "DesignSync",
+      "NotebookEdit",
+      "EnterWorktree",
+      "ExitWorktree",
+      "RemoteTrigger",
+      "EndConversation",
+      "EnterPlanMode",
+      "AskUserQuestion",
+      "SendFeedback",
+      "ReportFindings",
+      "ListMcpResourcesTool",
+      "ReadMcpResourceTool",
+      "ReadMcpResourceDirTool",
+      "mcp__claude-in-chrome",
+      "mcp__claude_ai_Claude_Docs"
+    ],
+    "defaultMode": "dontAsk"
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "py-diff@andrew-mods": true,
+    "andrew-hooks@andrew-mods": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "exa@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "andrew-mods": {
+      "source": {
+        "source": "directory",
+        "path": "/Volumes/Projects/andrewgazelka/cc-mods"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium",
+      "autoCompactWindow": 300000
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium",
+      "autoCompactWindow": 500000
+    }
+  },
+  "autoCompactWindow": 300000,
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "verbose": false,
+  "switchModelsOnFlag": true,
+  "agentPushNotifEnabled": true
+}

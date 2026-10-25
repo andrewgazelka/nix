@@ -1,0 +1,30 @@
+// On top of the JetBrains base keymap and vim mode.
+[
+  {
+    "bindings": {
+      "cmd-1": "workspace::ToggleLeftDock",
+      "cmd-i": "agent::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-j": "editor::Hover",
+      "ctrl-shift-j": "editor::GoToDefinition",
+      // Keep cmd-- as zoom out instead of JetBrains' fold.
+      "cmd--": null
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-backspace": ["project_panel::Delete", { "skip_prompt": true }]
+    }
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "shift-enter": "search::SelectPreviousMatch"
+    }
+  }
+]

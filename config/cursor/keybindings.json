@@ -1,0 +1,66 @@
+// A removal rule ("-command") without "when" drops every default binding of
+// that command on that key.
+[
+  // Editor
+  { "key": "ctrl+j", "command": "editor.action.showHover", "when": "editorTextFocus" },
+  { "key": "shift+cmd+b", "command": "editor.action.goToTypeDefinition", "when": "editorHasTypeDefinitionProvider && editorTextFocus" },
+  { "key": "shift+cmd+s", "command": "workbench.action.gotoSymbol", "when": "editorTextFocus" },
+  { "key": "cmd+u", "command": "rust-analyzer.parentModule", "when": "editorTextFocus && editorLangId == 'rust'" },
+  { "key": "alt+d", "command": "editor.action.moveSelectionToNextFindMatch", "when": "editorFocus" },
+  { "key": "alt+shift+n", "command": "editor.action.addSelectionToPreviousFindMatch", "when": "editorFocus" },
+  { "key": "ctrl+r", "command": "redo", "when": "editorTextFocus" },
+  { "key": "alt+j", "command": "editor.action.marker.nextInFiles", "when": "editorFocus" },
+  { "key": "alt+k", "command": "editor.action.marker.prevInFiles", "when": "editorFocus" },
+  { "key": "alt+j", "command": "list.focusDown", "when": "problemsViewFocus" },
+  { "key": "alt+k", "command": "list.focusUp", "when": "problemsViewFocus" },
+  { "key": "escape", "command": "workbench.action.focusActiveEditorGroup", "when": "sideBarFocus" },
+
+  // ctrl+n / ctrl+p move through menus, like vim.
+  { "key": "ctrl+n", "command": "selectNextSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+  { "key": "ctrl+n", "command": "selectNextCodeAction", "when": "codeActionMenuVisible" },
+  { "key": "ctrl+p", "command": "selectPrevCodeAction", "when": "codeActionMenuVisible" },
+  { "key": "ctrl+n", "command": "-editor.emmet.action.nextEditPoint" },
+  { "key": "ctrl+n", "command": "-workbench.action.quickOpenSelectNext" },
+
+  // Git and AI
+  { "key": "alt+b", "command": "gitlens.toggleFileBlame", "when": "editorTextFocus" },
+  { "key": "shift+cmd+c", "command": "gitlens.copyRemoteFileUrlToClipboard", "when": "editorTextFocus" },
+  { "key": "shift+cmd+c", "command": "-workbench.action.terminal.openNativeConsole" },
+  { "key": "cmd+i", "command": "composerMode.agent" },
+  { "key": "ctrl+cmd+p", "command": "composerMode.plan" },
+
+  // Terminal: shift+enter inserts a line continuation.
+  { "key": "shift+enter", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\\\r\n" }, "when": "terminalFocus" },
+
+  // Free keys that vim (vscode-neovim) or the bindings above want.
+  { "key": "ctrl+d", "command": "-deleteRight" },
+  { "key": "ctrl+d", "command": "-workbench.action.debug.run" },
+  { "key": "cmd+b", "command": "-workbench.action.toggleSidebarVisibility" },
+  { "key": "cmd+e", "command": "-composer.showBackgroundAgentHistory" },
+  { "key": "cmd+]", "command": "-editor.action.indentLines" },
+  { "key": "cmd+n", "command": "-workbench.action.files.newUntitledFile" },
+  { "key": "cmd+n", "command": "-editor.action.inlineDiffs.rejectPartialEdit" },
+  { "key": "cmd+n", "command": "-editor.action.sourceAction" },
+  { "key": "shift+cmd+s", "command": "-workbench.action.files.saveAs" },
+  { "key": "shift+cmd+s", "command": "-workbench.action.files.saveLocalFile" },
+  { "key": "shift+cmd+s", "command": "-workbench.action.backgroundComposer.toggleSidebar" },
+  { "key": "shift+cmd+[", "command": "-workbench.action.terminal.focusPrevious" },
+  { "key": "shift+cmd+[", "command": "-workbench.action.debug.prevConsole" },
+  { "key": "shift+cmd+]", "command": "-workbench.action.terminal.focusNext" },
+  { "key": "shift+cmd+]", "command": "-workbench.action.debug.nextConsole" },
+  { "key": "alt+cmd+k", "command": "-git.pushTo" },
+  { "key": "alt+cmd+k", "command": "-keybindings.editor.recordSearchKeys" },
+
+  // cmd+k and its chords
+  { "key": "cmd+k", "command": "-git.commitAll" },
+  { "key": "cmd+k", "command": "-cursorai.action.generateInTerminal" },
+  { "key": "cmd+k", "command": "-editor.action.inlineDiffs.focusEditor" },
+  { "key": "cmd+k", "command": "-workbench.debug.panel.action.clearReplAction" },
+  { "key": "cmd+k cmd+r", "command": "-git.revertSelectedRanges" },
+  { "key": "cmd+k cmd+n", "command": "-git.unstageSelectedRanges" },
+  { "key": "cmd+k alt+cmd+s", "command": "-git.stageSelectedRanges" },
+  { "key": "cmd+k cmd+i", "command": "-workbench.action.showHover" },
+  { "key": "cmd+k v", "command": "-markdown.showPreviewToSide" },
+  { "key": "cmd+k v", "command": "-typst-preview.preview" },
+  { "key": "cmd+k m", "command": "-notebook.cell.changeLanguage" }
+]

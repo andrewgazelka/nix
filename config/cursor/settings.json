@@ -1,0 +1,175 @@
+// Only values that differ from Cursor / VS Code and extension defaults.
+{
+  // Look
+  "workbench.preferredDarkColorTheme": "Islands Dark",
+  "workbench.preferredLightColorTheme": "Islands Light",
+  "window.autoDetectColorScheme": true,
+  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+  "editor.fontFamily": "'Berkeley Mono', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.1,
+  "editor.inlayHints.fontFamily": "Berkeley Mono",
+  "editor.inlayHints.fontSize": 11,
+  "editor.inlayHints.maximumLength": 1000,
+  "terminal.integrated.fontSize": 11,
+  "markdown.preview.lineHeight": 1.2,
+  "window.zoomLevel": -1,
+  "window.density.editorTabHeight": "compact",
+  "window.title": "${rootName}",
+  "editor.cursorBlinking": "solid",
+
+  // Chrome: hide what isn't code.
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  "editor.codeLens": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "workbench.activityBar.location": "hidden",
+  "workbench.navigationControl.enabled": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.editor.tabActionUnpinVisibility": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "outline.showKeys": false,
+  "outline.showProperties": false,
+  "outline.showVariables": false,
+  "git.showActionButton": { "commit": false, "publish": false, "sync": false },
+  "git.showCommitInput": false,
+  "scm.defaultViewMode": "tree",
+
+  // Editing
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 50,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.find.loop": false,
+  "editor.parameterHints.enabled": false,
+  "editor.inlineSuggest.enabled": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.renderValidationDecorations": "on",
+  "editor.accessibilitySupport": "off",
+  "files.autoSave": "afterDelay",
+  "files.associations": { "*.svx": "svelte" },
+  "workbench.editorAssociations": { "*.md": "vscode.markdown.preview.editor" },
+  "workbench.editor.focusRecentEditorAfterClose": false,
+  "window.openFoldersInNewWindow": "on",
+  "explorer.excludeGitIgnore": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "problems.showCurrentInStatus": true,
+  "security.promptForLocalFileProtocolHandling": false,
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.defaultProfile.osx": "nu",
+  "terminal.integrated.profiles.osx": {
+    "nu": { "path": "/run/current-system/sw/bin/nu" }
+  },
+  "update.mode": "silentlyApplyOnQuit",
+  "update.releaseTrack": "dev",
+
+  // Vim comes from vscode-neovim; VSCodeVim stays installed but off.
+  "extensions.experimental.affinity": { "asvetliakov.vscode-neovim": 1 },
+  "vim.disableExtension": true,
+
+  // Cursor and Claude Code
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.composer.queueManualSendBehavior2": "steer",
+  "cursor.cpp.enablePartialAccepts": true,
+  "cursor.inlineDiff.enablePerformanceProtection": false,
+  "cursor.terminal.usePreviewBox": true,
+  "cursor-retrieval.canAttemptGithubLogin": false,
+  "claudeCode.allowDangerouslySkipPermissions": true,
+  "claudeCode.initialPermissionMode": "bypassPermissions",
+
+  // Diagnostics and blame
+  "errorLens.messageBackgroundMode": "none",
+  "errorLens.replaceLinebreaksSymbol": "; ",
+  "gitlens.blame.format": "${author|2?}",
+  "gitlens.blame.heatmap.enabled": false,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.blame.separateLines": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.currentLine.format": "${author}, ${agoOrDate} • ${message}",
+  "gitlens.currentLine.scrollable": false,
+  "gitlens.defaultDateFormat": "MMM D, YYYY",
+  "gitlens.defaultDateShortFormat": "M/D/YY",
+  "gitlens.hovers.avatarSize": 24,
+
+  // Languages
+  "direnv.restart.automatic": true,
+  "redhat.telemetry.enabled": false,
+  "jupyter.askForKernelRestart": false,
+  "svelte.enable-ts-plugin": true,
+  // Python types come from cursorpyright / basedpyright, formatting from ruff.
+  "python.languageServer": "None",
+  "[python]": {
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "[dockerfile]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4
+  },
+  "[svelte]": {
+    "editor.formatOnSave": false
+  },
+  "nix.enableLanguageServer": true,
+  // Option completion for this flake.
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": { "command": ["nixfmt"] },
+      "options": {
+        "nixpkgs": {
+          "expr": "import (builtins.getFlake \"/Volumes/Projects/nix\").inputs.nixpkgs { }"
+        },
+        "nix-darwin": {
+          "expr": "(builtins.getFlake \"/Volumes/Projects/nix\").darwinConfigurations.hydra.options"
+        },
+        "home-manager": {
+          "expr": "(builtins.getFlake \"/Volumes/Projects/nix\").darwinConfigurations.hydra.options.home-manager.users.type.getSubOptions []"
+        }
+      }
+    }
+  },
+  // Use the rust-analyzer on PATH (the project's toolchain), not the bundled one.
+  "rust-analyzer.server.path": "rust-analyzer",
+  "rust-analyzer.assist.preferSelf": true,
+  "rust-analyzer.imports.granularity.enforce": true,
+  "rust-analyzer.imports.preferNoStd": true,
+  "rust-analyzer.references.excludeImports": true,
+  "rust-analyzer.lens.implementations.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+  "rust-analyzer.inlayHints.genericParameterHints.lifetime.enable": true,
+  "rust-analyzer.inlayHints.implicitDrops.enable": true,
+  "rust-analyzer.inlayHints.implicitSizedBoundHints.enable": true,
+  "evenBetterToml.formatter.alignComments": true,
+  "evenBetterToml.formatter.arrayTrailingComma": true,
+  "evenBetterToml.formatter.columnWidth": 100,
+  "evenBetterToml.formatter.reorderArrays": false,
+  "evenBetterToml.formatter.reorderInlineTables": true,
+  "evenBetterToml.formatter.reorderKeys": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true
+}

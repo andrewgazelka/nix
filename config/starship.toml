@@ -1,0 +1,86 @@
+# Layered over starship's nerd-font-symbols preset (see home/shell.nix).
+format = "${custom.submodule_chain}$username$hostname$localip$directory${custom.physical_dir}$git_branch$git_status$all$line_break$character"
+scan_timeout = 200
+
+[directory.substitutions]
+"~/Projects/" = ""
+
+[memory_usage]
+disabled = false
+threshold = 95
+style = "bold dimmed green"
+
+# Name the shell only when it isn't nu or fish.
+[shell]
+disabled = false
+format = "[$indicator]($style)"
+nu_indicator = ""
+fish_indicator = ""
+
+# Shown inside a Claude Code shell, which sets CLAUDECODE=1.
+[env_var.CLAUDECODE]
+format = "[🤖](bold blue) "
+
+# Superprojects when inside a git submodule: "outer › inner ›".
+[custom.submodule_chain]
+command = '''
+sup=$(git rev-parse --show-superproject-working-tree 2>/dev/null); names=""
+while [ -n "$sup" ]; do
+  names="$(basename "$sup")${names:+ › $names}"
+  sup=$(git -C "$sup" rev-parse --show-superproject-working-tree 2>/dev/null)
+done
+printf "%s" "$names"
+'''
+when = true
+require_repo = true
+shell = ["sh", "-c"]
+use_stdin = false
+ignore_timeout = true
+format = "([$output ›]($style) )"
+style = "dimmed"
+
+# Real path when the cwd was reached through a symlink.
+[custom.physical_dir]
+command = "pwd -P"
+when = '[ "$PWD" != "$(pwd -P)" ]'
+shell = ["sh", "-c"]
+use_stdin = false
+ignore_timeout = true
+format = "[$output]($style) "
+style = "dimmed"
+
+[custom.commit_age]
+command = "git log -1 --format=%cr 2>/dev/null"
+when = true
+require_repo = true
+shell = ["sh", "-c"]
+use_stdin = false
+ignore_timeout = true
+format = "([$output]($style) )"
+style = "italic dimmed"
+
+# Runtime and cloud noise.
+[aws]
+disabled = true
+[buf]
+disabled = true
+[bun]
+disabled = true
+[gcloud]
+disabled = true
+[nodejs]
+disabled = true
+[package]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = true
+[swift]
+disabled = true
+[typst]
+disabled = true
+[nix_shell]
+disabled = true
+[git_commit]
+disabled = true
